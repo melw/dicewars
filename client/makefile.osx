@@ -1,0 +1,55 @@
+#---------------------------------------------------------------------------------
+.SUFFIXES:
+#---------------------------------------------------------------------------------
+
+export TARGET		:=	dicewars
+#export TARGET := $(shell basename $(CURDIR))
+export TOPDIR		:=	$(CURDIR)
+
+#.PHONY: $(TARGET).o
+
+.SUFFIXES: .m
+
+# SDL_FRAMEWORK_PATH=$(HOME)/Library/Frameworks
+
+SDL_FRAMEWORK_PATH=../Frameworks/
+FMOD_PATH=/Developer/FMOD\ Programmers\ API/api
+
+OBJS=osx/main.o osx/SDLMain.o
+
+
+FRAMEWORKS= -framework SDL -framework SDL_mixer -framework Cocoa
+
+CFLAGS= -F$(SDL_FRAMEWORK_PATH) -DOSX -DCLIENT -DDEBUG -I$(FMOD_PATH)/inc
+LDFLAGS= -F$(SDL_FRAMEWORK_PATH)  $(FRAMEWORKS) -lobjc -L$(FMOD_PATH)/lib -lfmodex
+
+#---------------------------------------------------------------------------------
+# main targets
+#---------------------------------------------------------------------------------
+all: dicewars
+
+%.o: %.m
+	g++ $(CFLAGS) -lobjc -framework Cocoa -c $< -o $@
+
+
+%.o: %.cpp
+	g++ $(CFLAGS) -c $< -o $@
+
+
+
+#$(OBJS):
+#	echo "goo"
+
+#---------------------------------------------------------------------------------
+dicewars:	$(OBJS)
+	g++ $(LDFLAGS) -I ../include  -DOSX -DCLIENT -DDEBUG -lpthread $(OBJS) -o $(TARGET)
+	install_name_tool -change /usr/local/lib/libfmodex.dylib libfmodex.dylib dicewars
+
+#---------------------------------------------------------------------------------
+#osx/$(TARGET).o:
+#	$(MAKE) -C osx
+	
+#---------------------------------------------------------------------------------
+clean:
+#	$(MAKE) -C osx clean
+	rm -f $(OBJS) $(TARGET)

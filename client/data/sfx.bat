@@ -1,0 +1,12 @@
+c:\code\tools\inc.exe sfx_attack_lost.wav sfx_attack_lost.h SOUND_ATTACK_LOST 0
+c:\code\tools\inc.exe sfx_attack_won.wav  sfx_attack_won.h  SOUND_ATTACK_WON  1
+c:\code\tools\inc.exe sfx_death.wav       sfx_death.h       SOUND_DEATH       2
+c:\code\tools\inc.exe sfx_dice.wav        sfx_dice.h        SOUND_DICE        3
+c:\code\tools\inc.exe sfx_end_turn.wav    sfx_end_turn.h    SOUND_END_TURN    4
+c:\code\tools\inc.exe sfx_game_over.wav   sfx_game_over.h   SOUND_GAME_OVER   5
+c:\code\tools\inc.exe sfx_game_won.wav    sfx_game_won.h    SOUND_GAME_WON    6
+c:\code\tools\inc.exe sfx_keyboard.wav    sfx_keyboard.h    SOUND_KEYBOARD    7
+c:\code\tools\inc.exe sfx_menu_loop.wav   sfx_menu_loop.h   SOUND_MENU_LOOP   8
+c:\code\tools\inc.exe sfx_reselect.wav    sfx_reselect.h    SOUND_RESELECT    9
+c:\code\tools\inc.exe sfx_select.wav      sfx_select.h      SOUND_SELECT      10
+c:\code\tools\inc.exe sfx_start_game.wav  sfx_start_game.h  SOUND_START_GAME  11

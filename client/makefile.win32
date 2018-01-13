@@ -1,0 +1,30 @@
+#---------------------------------------------------------------------------------
+.SUFFIXES:
+#---------------------------------------------------------------------------------
+
+export TARGET		:=	dicewars
+#export TARGET		:=	$(shell basename $(CURDIR))
+export TOPDIR		:=	$(CURDIR)
+
+.PHONY: $(TARGET).o
+
+#---------------------------------------------------------------------------------
+# main targets
+#---------------------------------------------------------------------------------
+all: $(TARGET).exe
+
+#---------------------------------------------------------------------------------
+$(TARGET).exe	:	$(TARGET).o
+#	g++ -I ../include -L ../lib -DWIN32 -DCLIENT -DDISABLE_NETWORK_GAME win32/main.cpp -o $(TARGET).exe -lmingw32 -lSDLmain -lSDL -lfmodex -lws2_32 -mwindows 
+#	g++ -I ../include -L ../lib -DWIN32 -DCLIENT -DDEBUG win32/main.cpp -o $(TARGET).exe -lmingw32 -lSDLmain -lSDL -lfmodex -lws2_32 -liphlpapi -mwindows 
+#	g++ -I ../include -L ../lib -DWIN32 -DCLIENT -DNEOFLASH win32/main.cpp -o $(TARGET).exe -lmingw32 -lSDLmain -lSDL -lfmodex -lws2_32 -liphlpapi -mwindows 
+	g++ -I ../include -L ../lib -DWIN32 -DCLIENT win32/main.cpp -o $(TARGET).exe -lmingw32 -lSDLmain -lSDL -lfmodex -lws2_32 -liphlpapi -mwindows 
+
+#---------------------------------------------------------------------------------
+win32/$(TARGET).o:
+	$(MAKE) -C win32
+	
+#---------------------------------------------------------------------------------
+clean:
+	$(MAKE) -C win32 clean
+	rm -f $(TARGET).o $(TARGET).exe

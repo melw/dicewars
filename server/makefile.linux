@@ -1,0 +1,28 @@
+#---------------------------------------------------------------------------------
+.SUFFIXES:
+#---------------------------------------------------------------------------------
+
+export TARGET		:=	dicewars_server
+#export TARGET := $(shell basename $(CURDIR))
+export TOPDIR		:=	$(CURDIR)
+
+.PHONY: $(TARGET).o
+
+#---------------------------------------------------------------------------------
+# main targets
+#---------------------------------------------------------------------------------
+all: $(TARGET)
+
+#---------------------------------------------------------------------------------
+$(TARGET)	:	$(TARGET).o
+#	g++ -g -I ../include -DLINUX -Wall -pedantic-errors linux/main.cpp -o $(TARGET) -lpthread
+	g++ -O0 -DLINUX -DUSE_DB -Wall linux/main.cpp -o $(TARGET) -I../include -L../lib -lmysqlclient -lpthread
+
+#---------------------------------------------------------------------------------
+linux/$(TARGET).o:
+	$(MAKE) -C linux
+	
+#---------------------------------------------------------------------------------
+clean:
+	$(MAKE) -C linux clean
+	rm -f $(TARGET).o $(TARGET)
