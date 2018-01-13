@@ -6,7 +6,7 @@ Back in 2007 I was in between of jobs and finishing my CS studies at the Helsink
 
 Now looking back at the codebase it's not very pretty - I was still learning on how to write C++ so it's a mostly C-style code wrapped inside C++ in somewhat unorganized way. Neverthless I thought it's relevant enough for sharing as it still stands as an example of one way of doing multi-platform development with SDL and DevkitPro. And the game is still fun to play - even after 10 years!
 
-While the Nintendo DS version was the only publicly release version of the game, it was possible to compile the game on multiple different target platforms:
+While the Nintendo DS version was the only publicly release version of the game, it is possible to compile the game on multiple different target platforms:
 
 * Win32
 * Mac OSX
@@ -16,9 +16,9 @@ While the Nintendo DS version was the only publicly release version of the game,
 
 There's also a server component for the multiplayer game, which works both on Linux and Mac OSX from the command line. The online version of the game uses UDP sockets for network communication.
 
-On Nintendo DS it was possible to play local network games, but IIRC this got broken in the later releases - back in 2007 the used DSWiFi library was undergoing multiple changes. However, I still remember vividly how we played in one of the IGDA Helsinki chapter gatherings a local multiplayer match with 8 players, each around the same table with their NDS consoles. Boy, that was really something!
+On Nintendo DS it was possible to play local network games, but this might be broken in this release - back in 2007 the used DSWiFi library was undergoing multiple changes. However, I still remember vividly how we played in one of the IGDA Helsinki chapter gatherings a local multiplayer match with 8 players, each around the same table with their NDS consoles. Boy, that was really something!
 
 I doubt the codebase compiles with any recent DevkitARM releases, but who knows!
 
-Cheers,
+Cheers,  
 Matti
